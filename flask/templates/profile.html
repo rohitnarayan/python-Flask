@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Welcome to Facebook</title>
+	<link rel="stylesheet" href=" {{url_for('static', filename='styles.css')}} ">
+</head>
+<body>
+	{% if user %}
+		<h1>Welcome {{ user }} </h1>
+	{% else %}
+		<h1>Please Login!</h1>
+	{% endif %}
+</body>
+</html>

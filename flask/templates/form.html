@@ -1,0 +1,1 @@
+{% macro render_field(field) %}	{% if field.name != 'submit' %}		<label for=""> {{field.label}} </label>	{%endif%}	{{field}}{% endmacro %}{% block content %}<form action="/" method="POST">	{{form.csrf_token}}	{{ render_field(form.name) }}	{{ render_field(form.passwrd) }}	{{ render_field(form.submit) }}</form>{% endblock %}

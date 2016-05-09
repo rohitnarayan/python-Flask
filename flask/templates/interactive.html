@@ -1,0 +1,58 @@
+<form>
+	Name : <input type="text" name="name" id="name">
+	Email : <input type="email" name="email" id="email">
+	<button id="clickme">Submit</button>
+</form>
+
+<div id="div">
+{% if name %}
+	{{name}}
+{%endif%}
+</div>
+
+
+<div class="names">
+	<ul id="list">
+		{% for i in country %}
+		<li> {{i[1]}} </li>
+		{%endfor%}
+	</ul>
+</div>
+
+<script src="{{url_for('static',filename='js/jQuery.js')}}"></script>
+<script>
+	$(function(){
+		$('#clickme').on('click',function(e){
+			e.preventDefault();
+
+			$.ajax({
+				type:'POST',
+				url:'/background',
+				data:{
+					name: $('#name').val(),
+					email: $('#email').val(),
+				},
+				success:function(data){
+					$('#div').append(data);
+				}
+			});
+		});
+
+		$(window).on('load',function schedule(){
+			$.ajax({
+				url: '/getdata',
+				type: 'GET',
+				success: function(data){
+					console.log('data fetched');
+				},
+				error:function(e){
+					console.log(e)
+				},
+				complete: function(data)
+				{
+					setTimeout(schedule,5000);
+				}
+			});
+		});
+	});	
+</script>

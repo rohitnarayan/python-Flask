@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Fetching Data</title>
+	<script src=" {{url_for('static',filename='js/angular.min.js')}} "></script>
+</head>
+<body ng-app="csvApp">
+	<label for="#search">Filter : </label>
+	<input type="text" id="search" ng-model="filter2">
+	<table border="1">
+		<thead>
+			<tr>
+				<td>Name</td>
+				<td>Score 1</td>
+				<td>Score 2</td>
+			</tr>
+		</thead>
+		<tbody filter:filter2>
+			{% for name in names %}
+			<tr>
+				<td>{{name[0]}}</td>
+				<td>{{name[1]}}</td>
+				<td>{{name[2]}}</td>
+			</tr>
+			{%endfor%}
+		</tbody>
+	</table>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Names</title>
+</head>
+<body>
+	<ul>
+		
+	</ul>
+<script src=" {{url_for('static',filename='js/jQuery.js')}} "></script>
+<script>
+	$(function(){
+		$.ajax({
+			url:'../database.py',
+			type:'get',
+			success:function(data){
+				$('ul').text(data)
+			},
+			error: function(data)
+			{
+				cosole.log(data)
+			}
+		});
+	});
+</script>
+</body>
+</html>

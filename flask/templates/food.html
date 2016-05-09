@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Welcome to Facebook</title>
+	<!-- <link rel="stylesheet" href=" {{url_for('static', filename='styles.css')}} "> -->
+</head>
+	<body>
+		<h1>Welcome to FoodBazaar</h1>
+
+		<ul>
+		{% for item in food %}
+			<li> {{item}} </li>
+		{% endfor %}
+		</ul>
+		<br>
+		<ul>
+			{% for place in places %}
+			<li> {{place}} </li>
+			{% endfor %}
+		</ul>
+	</body>
+</html>
